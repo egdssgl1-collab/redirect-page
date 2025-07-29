@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>กำลังเปิด Chrome...</title>
+</head>
+<body>
+  <p>กำลังโหลดรายงาน กรุณารอสักครู่...</p>
+  <script>
+    const isLine = navigator.userAgent.toLowerCase().includes("line");
+    const isAndroid = /android/i.test(navigator.userAgent);
+    const isIOS = /iphone|ipad/i.test(navigator.userAgent);
+
+    const targetURL = "https://script.google.com/macros/s/AKfycbza7dfWCAfAsjvJkT52iESH-5sp0o9MIxhJfeJsjYIjmB5LQuXKYtjzHxeE2qqaRTY-Zg/exec";
+
+    if (isLine && isAndroid) {
+      location.href = `intent://${targetURL.replace(/^https?:\/\//, '')}#Intent;scheme=https;package=com.android.chrome;end`;
+    } else {
+      window.location.href = targetURL;
+    }
+  </script>
+</body>
+</html>
